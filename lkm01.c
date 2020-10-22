@@ -1,9 +1,11 @@
 #include <linux/init.h>
 #include <linux/module.h>
 
+MODULE_LICENSE("GPL");
+
 int lkm_simple_module_init(void)
 {
-	printk(KERN_ALERT "Inside the %s function\n",__FUNCTION__);
+	printk(KERN_ALERT "Rathinavel says: Inside the %s function\n",__FUNCTION__);
 	return 0;
 }
 

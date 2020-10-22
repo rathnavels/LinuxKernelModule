@@ -1,7 +1,13 @@
 obj-m := lkm01.o
 
 all:
-	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
+	make -C ~/newkernel/WSL2-Linux-Kernel-linux-msft-5.4.51 M=$(PWD) modules
 
 clean:
-	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean
+	make -C ~/newkernel/WSL2-Linux-Kernel-linux-msft-5.4.51 M=$(PWD) clean
+
+test:
+	sudo dmesg -C
+	sudo /sbin/insmod lkm01.ko
+	sudo rmmod lkm01.ko
+	dmesg
